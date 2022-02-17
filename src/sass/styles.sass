@@ -1,0 +1,326 @@
+@import _fonts.sass
+@import _reset.sass
+
+*
+    font-family: 'Proxima Nova'
+    color: #fff        // TODO: убрать позже, внести переменные
+.container
+    display: block
+    position: relative
+    width: 1170px
+    margin: 0 auto
+    @media screen and ( max-width: 1199px )
+        width: 712px
+    @media screen and ( max-width: 767px )
+        width: 316px
+.preferences
+    background: #233249
+    &::before
+        content: ""
+        width: 100%
+        height: 120%
+        position: absolute
+        background: url(./../img/icons/symbol-logo.svg) no-repeat center center
+        background-size: 585px
+        top: -50px
+    &__container    
+        text-align: center
+        border-left: 1px solid rgba(217, 223, 230, 0.2)
+        border-right: 1px solid rgba(217, 223, 230, 0.2)
+        &::after
+            content: ""
+            position: absolute
+            width: 1px
+            height: 100%
+            background: rgba(217, 223, 230, 0.2)
+            top: 0
+            z-index: 0
+    &__wrapper
+        padding: 130px 0 295px
+        @media screen and ( max-width: 1199px )
+            padding: 100px 0 350px
+        @media screen and ( max-width: 767px )
+            padding: 86px 0 295px
+    &__title
+        position: relative
+        width: 50%
+        text-align: left
+        text-transform: uppercase
+        font-size: 48px
+        line-height: 58px
+        font-weight: 900
+        letter-spacing: 1.44px
+        color: #fff
+        padding: 50px 0 122px
+        @media screen and ( max-width: 1199px )
+            width: 100%
+            font-size: 36px
+            line-height: 44px
+            letter-spacing: 1.2px
+            padding: 50px 0 90px
+        @media screen and ( max-width: 767px )
+            width: 100%
+            font-size: 30px
+            line-height: 36.5px
+            letter-spacing: 0.9px
+            padding: 50px 0 60px
+        &::before
+            content: ""
+            position: absolute
+            background: #1F65D9
+            width: 16px
+            height: 23px
+            transform: skew(-40deg) rotate(-132deg)
+            top: 6px
+            left: 6px
+            @media screen and ( max-width: 767px )
+                width: 12px
+                height: 13px
+                transform: skew(-50deg) rotate(-138deg)
+                top: 7px
+    &__cards
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        margin: 0 50px 0 100px
+        grid-gap: 100px 150px
+        text-align: left
+        @media screen and ( max-width: 1199px )
+            margin: 0 50px 0 0
+            grid-gap: 100px 50px
+        @media screen and ( max-width: 767px )
+            grid-template-columns: 1fr
+            margin: 0
+            grid-gap: 52px
+
+.preference-card
+    width: 100%
+    &__icon
+        max-width: 52px
+        margin-bottom: 25px
+        @media screen and ( max-width: 767px )
+            max-width: 34px
+            margin-bottom: 30px
+    &__title
+        font-size: 32px
+        line-height: 39px
+        font-weight: 700
+        letter-spacing: 0.64px
+        margin-bottom: 50px
+        @media screen and ( max-width: 767px )
+            font-size: 22px
+            line-height: 27px
+            letter-spacing: 0.44px
+            margin-bottom: 35px
+    &__desc
+        font-size: 18px
+        line-height: 28px
+        font-weight: 300
+        letter-spacing: 0.36px
+        color: #8796AE
+        @media screen and ( max-width: 767px )
+            font-size: 16px
+            line-height: 24px
+            letter-spacing: 0.32px
+
+.cta
+    position: absolute
+    height: 310px
+    bottom: -203px
+    z-index: 11
+    @media screen and ( max-width: 1199px )
+        height: 360px
+        bottom: -196px
+    @media screen and ( max-width: 767px )
+        height: 410px
+        bottom: -196px
+    &__container
+        height: 100%
+        &::before
+            content: ""
+            background: #1f65d9
+            position: absolute
+            width: 3600px
+            height: 100%
+            right: 0
+            @media screen and ( max-width: 767px )
+                right: -30px
+    &__wrapper
+        position: relative
+        text-align: left
+        width: 50%
+        height: 100%
+        @media screen and ( max-width: 767px )
+            width: 100%
+        &::before
+            content: ""
+            position: absolute
+            width: 100%
+            height: 100%
+            background: url(../img/icons/paper.svg) no-repeat
+            top: 75px
+            opacity: .1
+            pointer-events: none
+            @media screen and ( max-width: 1199px )
+                background-size: 196px 229px
+                top: 200px
+                left: -30px
+    &__picture
+        position: absolute
+        right: calc(-100% - 17px)
+        top: -74px
+        @media screen and ( max-width: 1199px )
+            right: -150%
+            top: -90px
+        @media screen and ( max-width: 767px )
+            right: unset
+            left: 50px
+            top: -41px
+    &__title
+        position: relative
+        font-size: 32px
+        line-height: 39px
+        font-weight: 800
+        letter-spacing: 0.64px
+        color: #fff
+        top: 70px
+        z-index: 1
+        @media screen and ( max-width: 1199px )
+            font-size: 27px
+            line-height: 34px
+            top: 85px
+        @media screen and ( max-width: 767px )
+            font-size: 22px
+            line-height: 27px
+            top: 195px
+    &__descr
+        position: absolute
+        width: 220px
+        font-size: 24px
+        line-height: 34px
+        font-weight: 400
+        letter-spacing: 0.48px
+        top: 44px
+        right: 70px
+        @media screen and ( max-width: 1199px )
+            display: block
+            position: relative
+            width: 200px
+            font-size: 20px
+            line-height: 29px
+            letter-spacing: 0.4px
+            top: unset
+            right: unset
+            margin-top: 40px
+        @media screen and ( max-width: 767px )
+            display: block
+            position: relative
+            width: 200px
+            font-size: 16px
+            line-height: 24px
+            letter-spacing: 0.32px
+            top: unset
+            right: unset
+            margin-top: 48px
+    &__btn
+        position: absolute
+        bottom: -37px
+        width: 100%
+        text-align: center
+        @media screen and ( max-width: 767px )
+            bottom: -27px
+.btn
+    width: 390px
+    background: #fccf18
+    color: #233148
+    font-size: 22px
+    line-height: 27px
+    font-weight: 700
+    letter-spacing: 0.48px
+    text-transform: uppercase
+    padding: 23px 23px 24px
+    margin-left: -7px
+    @media screen and ( max-width: 1199px )
+        width: 280px
+        font-size: 20px
+        line-height: 20px
+        padding: 16px 23px 18px
+        margin-left: 0
+    @media screen and ( max-width: 767px )
+        width: 280px
+        font-size: 16px
+        line-height: 20px
+        padding: 16px 23px 18px
+        margin-left: 0
+
+.about
+    background: #fff
+    &__container    
+        text-align: center
+        border-left: 1px solid rgba(18, 51, 106, 0.2)
+        border-right: 1px solid rgba(18, 51, 106, 0.2)
+        &::before
+            content: ""
+            position: absolute
+            width: 1px
+            height: 100%
+            background: rgba(18, 51, 106, 0.2)
+            z-index: 0
+    &__wrapper
+        padding: 370px 0 130px
+        @media screen and ( max-width: 767px )
+            padding: 287px 0 130px
+    &__title
+        position: relative
+        width: 50%
+        text-align: left
+        text-transform: uppercase
+        font-size: 48px
+        line-height: 58px
+        font-weight: 900
+        letter-spacing: 1.44px
+        word-spacing: 10px
+        color: #233148
+        padding: 50px 0 300px
+        @media screen and ( max-width: 1199px )
+            width: 100%
+            font-size: 36px
+            line-height: 44px
+            letter-spacing: 1.2px
+        @media screen and ( max-width: 767px )
+            width: 100%
+            font-size: 30px
+            line-height: 36.5px
+            letter-spacing: 0.9px
+            word-spacing: 0
+        &::before
+            content: ""
+            position: absolute
+            background: #1F65D9
+            width: 16px
+            height: 23px
+            transform: skew(-40deg) rotate(-132deg)
+            top: 0
+            left: 6px
+            @media screen and ( max-width: 767px )
+                width: 12px
+                height: 13px
+                transform: skew(-50deg) rotate(-138deg)
+                top: 7px
+
+
+
+// TODO: Pixel Perfect image
+body
+    // .pixelperfect
+    //     display: block
+    //     position: absolute
+    //     margin: auto
+    //     width: 100%
+    //     height: 100%
+    //     background: url(./../img/1920px.png) center top
+    //     background: url(./../img/1440px.png) center top
+    //     background: url(./../img/375px.png) center top
+    //     background-repeat: no-repeat
+    //     opacity: 0.5
+    //     .hj
+    //         position: relative
