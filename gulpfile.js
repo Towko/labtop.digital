@@ -10,16 +10,16 @@ const browserSync = require('browser-sync').create();
 
 gulp.task('sass', function () {
     return gulp.src('./src/sass/*.sass', !['./src/sass/_*.sass'])
-        .pipe(sass({
-            errorLogToConsole: true,
-            outputStyle: 'expanded',
-            allowEmpty: true
-        })).on('error', sass.logError)
-		.pipe(autoprefixer({
-            overrideBrowserslist: ['last 6 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('./src/css'))
+        // .pipe(sass({
+        //     errorLogToConsole: true,
+        //     outputStyle: 'expanded',
+        //     allowEmpty: true
+        // })).on('error', sass.logError)
+		// .pipe(autoprefixer({
+        //     overrideBrowserslist: ['last 6 versions'],
+        //     cascade: false
+        // }))
+        // .pipe(gulp.dest('./src/css'))
         
         .pipe(sass({
             errorLogToConsole: true,
@@ -47,15 +47,15 @@ gulp.task('pug', () => {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('buildSprites', function (done) {
-    return gulp.src('./src/img/sprite/*.png')
-        .pipe(pngSprite.gulp({
-          cssPath: './sass/sprite.scss',
-          pngPath: './img/sprite.png',
-          namespace: 'sprite'
-        }))
-        .pipe(gulp.dest('./src'));
-});
+// gulp.task('buildSprites', function (done) {
+//     return gulp.src('./src/img/sprite/*.png')
+//         .pipe(pngSprite.gulp({
+//           cssPath: './sass/sprite.scss',
+//           pngPath: './img/sprite.png',
+//           namespace: 'sprite'
+//         }))
+//         .pipe(gulp.dest('./src'));
+// });
 
 gulp.task('svgSprite', function() {
     return gulp.src('./src/img/svg-sprite/*.svg')
@@ -99,7 +99,12 @@ gulp.task('images', function() {
         .pipe(gulp.dest('./dist/img/'));
 });
 
-gulp.task('build-dist', gulp.series('fonts', 'images', 'pug', 'sass', 'styles', 'scripts'));
+gulp.task('files', function() {
+    return gulp.src('./src/*.*')
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('build-dist', gulp.series('fonts', 'images', 'pug', 'sass', 'styles', 'scripts', 'files'));
 
 
 gulp.task('watch', function() {
