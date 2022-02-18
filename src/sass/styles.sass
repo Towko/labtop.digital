@@ -1,9 +1,7 @@
 @import _fonts.sass
 @import _reset.sass
+@import _common.sass
 
-*
-    font-family: 'Proxima Nova'
-    color: #fff        // TODO: убрать позже, внести переменные
 .container
     display: block
     position: relative
@@ -14,13 +12,13 @@
     @media screen and ( max-width: 767px )
         width: 316px
 .preferences
-    background: #233249
+    background: var(--mainbgcolor)
     &::before
         content: ""
         width: 100%
         height: 120%
         position: absolute
-        background: url(./../img/icons/symbol-logo.svg) no-repeat center center
+        background: url(./../img/sprite.svg#symbol-logo) no-repeat center 250px
         background-size: 585px
         top: -50px
     &__container    
@@ -44,30 +42,32 @@
     &__title
         position: relative
         width: 50%
-        text-align: left
-        text-transform: uppercase
-        font-size: 48px
-        line-height: 58px
-        font-weight: 900
-        letter-spacing: 1.44px
-        color: #fff
+        text:
+            align: left
+            transform: uppercase
+        font:
+            size: $fz_primary_title
+            weight: 900
+        line-height: $lh_primary_title
+        letter-spacing: $ls_primary_title
+        color: var(--maincolor)
         padding: 50px 0 122px
         @media screen and ( max-width: 1199px )
             width: 100%
-            font-size: 36px
-            line-height: 44px
-            letter-spacing: 1.2px
+            font-size: $fz_primary_title_tab
+            line-height: $lh_primary_title_tab
+            letter-spacing: $ls_primary_title_tab
             padding: 50px 0 90px
         @media screen and ( max-width: 767px )
             width: 100%
-            font-size: 30px
-            line-height: 36.5px
-            letter-spacing: 0.9px
+            font-size: $fz_primary_title_mob
+            line-height: $lh_primary_title_mob
+            letter-spacing: ls_primary_title_mob
             padding: 50px 0 60px
         &::before
             content: ""
             position: absolute
-            background: #1F65D9
+            background: var(--bgcolor)
             width: 16px
             height: 23px
             transform: skew(-40deg) rotate(-132deg)
@@ -95,32 +95,36 @@
 .preference-card
     width: 100%
     &__icon
-        max-width: 52px
-        margin-bottom: 25px
+        width: 52px
+        height: 52px
+        margin-bottom: 23px
         @media screen and ( max-width: 767px )
-            max-width: 34px
-            margin-bottom: 30px
+            width: 34px
+            height: 34px
+            margin-bottom: 27px
     &__title
-        font-size: 32px
-        line-height: 39px
-        font-weight: 700
-        letter-spacing: 0.64px
+        font:
+            size: $fz_secondary_title
+            weight: 700
+        line-height: $lh_secondary_title
+        letter-spacing: $ls_secondary_title
         margin-bottom: 50px
         @media screen and ( max-width: 767px )
-            font-size: 22px
-            line-height: 27px
-            letter-spacing: 0.44px
+            font-size: $fz_secondary_title_mob
+            line-height: $lh_secondary_title_mob
+            letter-spacing: $ls_secondary_title_mob
             margin-bottom: 35px
     &__desc
-        font-size: 18px
-        line-height: 28px
-        font-weight: 300
-        letter-spacing: 0.36px
-        color: #8796AE
+        font:
+            size: $fz_card_desc
+            weight: 300
+        line-height: $lh_card_desc
+        letter-spacing: $ls_card_desc
+        color: var(--secondarycolor)
         @media screen and ( max-width: 767px )
-            font-size: 16px
-            line-height: 24px
-            letter-spacing: 0.32px
+            font-size: $fz_card_desc_mob
+            line-height: $lh_card_desc_mob
+            letter-spacing: $ls_card_desc_mob
 
 .cta
     position: absolute
@@ -137,7 +141,7 @@
         height: 100%
         &::before
             content: ""
-            background: #1f65d9
+            background: var(--bgcolor)
             position: absolute
             width: 3600px
             height: 100%
@@ -156,7 +160,7 @@
             position: absolute
             width: 100%
             height: 100%
-            background: url(../img/icons/paper.svg) no-repeat
+            background: url(../img/sprite.svg#paper) no-repeat
             top: 75px
             opacity: .1
             pointer-events: none
@@ -177,37 +181,39 @@
             top: -41px
     &__title
         position: relative
-        font-size: 32px
-        line-height: 39px
-        font-weight: 800
-        letter-spacing: 0.64px
-        color: #fff
+        font:
+            size: $fz_secondary_title
+            weight: 800
+        line-height: $lh_secondary_title
+        letter-spacing: $ls_secondary_title
+        color: var(--maincolor)
         top: 70px
         z-index: 1
         @media screen and ( max-width: 1199px )
-            font-size: 27px
-            line-height: 34px
+            font-size: $fz_secondary_title_tab
+            line-height: $lh_secondary_title_tab
             top: 85px
         @media screen and ( max-width: 767px )
-            font-size: 22px
-            line-height: 27px
+            font-size: $fz_secondary_title_mob
+            line-height: $lh_secondary_title_mob
             top: 195px
     &__descr
         position: absolute
         width: 220px
-        font-size: 24px
-        line-height: 34px
-        font-weight: 400
-        letter-spacing: 0.48px
+        font:
+            size: $fz_cta_descr
+            weight: 400
+        line-height: $lh_cta_descr
+        letter-spacing: $ls_cta_descr
         top: 44px
         right: 70px
         @media screen and ( max-width: 1199px )
             display: block
             position: relative
             width: 200px
-            font-size: 20px
-            line-height: 29px
-            letter-spacing: 0.4px
+            font-size: $fz_cta_descr_tab
+            line-height: $lh_cta_descr_tab
+            letter-spacing: $ls_cta_descr_tab
             top: unset
             right: unset
             margin-top: 40px
@@ -215,9 +221,9 @@
             display: block
             position: relative
             width: 200px
-            font-size: 16px
-            line-height: 24px
-            letter-spacing: 0.32px
+            font-size: $fz_cta_descr_mob
+            line-height: $lh_cta_descr_mob
+            letter-spacing: $ls_cta_descr_mob
             top: unset
             right: unset
             margin-top: 48px
@@ -230,30 +236,31 @@
             bottom: -27px
 .btn
     width: 390px
-    background: #fccf18
-    color: #233148
-    font-size: 22px
-    line-height: 27px
-    font-weight: 700
-    letter-spacing: 0.48px
+    background: var(--btnbgcolor)
+    color: var(--alternatecolor)
+    font:
+        size: $fz_btn
+        weight: 700
+    line-height: $lh_btn
+    letter-spacing: $ls_btn
     text-transform: uppercase
     padding: 23px 23px 24px
     margin-left: -7px
     @media screen and ( max-width: 1199px )
         width: 280px
-        font-size: 20px
-        line-height: 20px
+        font-size: $fz_btn_tab
+        line-height: $lh_btn_tab
         padding: 16px 23px 18px
         margin-left: 0
     @media screen and ( max-width: 767px )
         width: 280px
-        font-size: 16px
-        line-height: 20px
+        font-size: $fz_btn_mob
+        line-height: $lh_btn_mob
         padding: 16px 23px 18px
         margin-left: 0
 
 .about
-    background: #fff
+    background: var(--maincolor)
     &__container    
         text-align: center
         border-left: 1px solid rgba(18, 51, 106, 0.2)
@@ -272,30 +279,32 @@
     &__title
         position: relative
         width: 50%
-        text-align: left
-        text-transform: uppercase
-        font-size: 48px
-        line-height: 58px
-        font-weight: 900
-        letter-spacing: 1.44px
+        text:
+            align: left
+            transform: uppercase
+        font:
+            size: $fz_primary_title
+            weight: 900
+        line-height: $lh_primary_title
+        letter-spacing: $ls_primary_title
+        color: var(--alternatecolor)
         word-spacing: 10px
-        color: #233148
         padding: 50px 0 300px
         @media screen and ( max-width: 1199px )
             width: 100%
-            font-size: 36px
-            line-height: 44px
-            letter-spacing: 1.2px
+            font-size: $fz_primary_title_tab
+            line-height: $lh_primary_title_tab
+            letter-spacing: $ls_primary_title_tab
         @media screen and ( max-width: 767px )
             width: 100%
-            font-size: 30px
-            line-height: 36.5px
-            letter-spacing: 0.9px
+            font-size: $fz_primary_title_mob
+            line-height: $lh_primary_title_mob
+            letter-spacing: $ls_primary_title_mob
             word-spacing: 0
         &::before
             content: ""
             position: absolute
-            background: #1F65D9
+            background: var(--bgcolor)
             width: 16px
             height: 23px
             transform: skew(-40deg) rotate(-132deg)
@@ -306,21 +315,3 @@
                 height: 13px
                 transform: skew(-50deg) rotate(-138deg)
                 top: 7px
-
-
-
-// TODO: Pixel Perfect image
-body
-    // .pixelperfect
-    //     display: block
-    //     position: absolute
-    //     margin: auto
-    //     width: 100%
-    //     height: 100%
-    //     background: url(./../img/1920px.png) center top
-    //     background: url(./../img/1440px.png) center top
-    //     background: url(./../img/375px.png) center top
-    //     background-repeat: no-repeat
-    //     opacity: 0.5
-    //     .hj
-    //         position: relative

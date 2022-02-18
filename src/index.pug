@@ -15,12 +15,9 @@ html(lang="en")
         meta(name="msapplication-config", content="/img/favicons/browserconfig.xml")
         meta(name="theme-color", content="#333333")
 
-        link(rel="stylesheet", type="text/css" href="./css/styles.css")
+        link(rel="stylesheet", type="text/css" href="./css/styles.min.css")
         title laptop.digital testcase
     body 
-        .pixelperfect
-            //- img(class="hj" src="img/1920px.png", alt="alt")
-            //- TODO: Pixel Perfect image
         article#preferences.preferences 
             .container.preferences__container
                 .preferences__wrapper
@@ -29,27 +26,26 @@ html(lang="en")
                         | as a service
                     .preferences__cards
                         .preference-card
-                            .preference-card__icon
-                                img(src="./img/icons/icon_icon01.svg", alt="Digital identity icon")
+                            svg.preference-card__icon
+                                use(href="./img/sprite.svg#icon_icon01")
                             .preference-card__title Digital identity 
                             .preference-card__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         .preference-card
-                            .preference-card__icon
-                                img(src="./img/icons/icon_icon02.svg", alt="Trust Score icon")
+                            svg.preference-card__icon
+                                use(href="./img/sprite.svg#icon_icon02")
+                                //- img(src="./img/icons/icon_icon02.svg", alt="Trust Score icon")
                             .preference-card__title Trust Score
                             .preference-card__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         .preference-card
-                            .preference-card__icon
-                                img(src="./img/icons/icon_icon03.svg", alt="Search engine icon")
+                            svg.preference-card__icon
+                                use(href="./img/sprite.svg#icon_icon03")
                             .preference-card__title Search engine
                             .preference-card__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         .preference-card
-                            .preference-card__icon
-                                img(src="./img/icons/icon_icon04.svg", alt="User friendly icon")
+                            svg.preference-card__icon
+                                use(href="./img/sprite.svg#icon_icon04")
                             .preference-card__title User friendly
                             .preference-card__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            //- TODO: 1,5 часа
-                            //- Подготовка, создание проекта, верстка блока
             
                 aside.cta
                     .container.cta__container
@@ -59,7 +55,7 @@ html(lang="en")
                                 | LIGHTPAPER
                                 span.cta__descr Team is currently working on all its documents.
                             picture.cta__picture
-                                source(srcset="./img/Broshure.png" media="(min-width: 767px)")
+                                source(srcset="./img/Broshure.png" media="(min-width: 768px)")
                                 img(src="./img/Broshure_mob.png", alt="Broshure image")
                             .cta__btn
                                 button.btn(type='button') Download
@@ -70,6 +66,3 @@ html(lang="en")
                     h2.about__title something 
                         br
                         | search product 
-                        //- TODO: 4 часа
-                        //- aside + Pixel perfect + W3C editions
-
