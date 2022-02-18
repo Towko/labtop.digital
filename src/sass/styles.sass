@@ -235,6 +235,7 @@
         @media screen and ( max-width: 767px )
             bottom: -27px
 .btn
+    position: relative
     width: 390px
     background: var(--btnbgcolor)
     color: var(--alternatecolor)
@@ -246,6 +247,8 @@
     text-transform: uppercase
     padding: 23px 23px 24px
     margin-left: -7px
+    overflow: hidden
+    transition: .5s
     @media screen and ( max-width: 1199px )
         width: 280px
         font-size: $fz_btn_tab
@@ -258,6 +261,32 @@
         line-height: $lh_btn_mob
         padding: 16px 23px 18px
         margin-left: 0
+    &::after
+        content: ""
+        height: 200%
+        left: -230%
+        opacity: 0
+        position: absolute
+        top: -20%
+        transform: rotate(-30deg)
+        width: 200%
+        background: rgba(255, 255, 255, 0.13)
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100%)
+        transition: .5s
+    &:hover
+        letter-spacing: 1.5px
+        box-shadow: inset 1px 1px 1px #000, 0.3px 0.3px 1px #000
+        transition: .5s
+        &::after
+            left: 20%
+            opacity: 1
+            top: -50%
+            transition-duration: 0.7s, 0.7s, 0.15s
+            transition-property: left, top, opacity
+            transition-timing-function: ease
+    &:active:after
+        opacity: 0
+        transition: .5s
 
 .about
     background: var(--maincolor)

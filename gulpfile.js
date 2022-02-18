@@ -100,7 +100,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('files', function() {
-    return gulp.src('./src/*.*')
+    return gulp.src(['./src/*.*', '!./src/*.pug'])
         .pipe(gulp.dest('./dist/'));
 });
 
