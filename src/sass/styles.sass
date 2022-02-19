@@ -2,15 +2,6 @@
 @import _reset.sass
 @import _common.sass
 
-.container
-    display: block
-    position: relative
-    width: 1170px
-    margin: 0 auto
-    @media screen and ( max-width: 1199px )
-        width: 712px
-    @media screen and ( max-width: 767px )
-        width: 316px
 .preferences
     background: var(--mainbgcolor)
     &::before
@@ -21,7 +12,7 @@
         background: url(./../img/sprite.svg#symbol-logo) no-repeat center 250px
         background-size: 585px
         top: -50px
-    &__container    
+    &__container
         text-align: center
         border-left: 1px solid rgba(217, 223, 230, 0.2)
         border-right: 1px solid rgba(217, 223, 230, 0.2)
@@ -290,7 +281,7 @@
 
 .about
     background: var(--maincolor)
-    &__container    
+    &__container
         text-align: center
         border-left: 1px solid rgba(18, 51, 106, 0.2)
         border-right: 1px solid rgba(18, 51, 106, 0.2)
@@ -344,3 +335,5 @@
                 height: 13px
                 transform: skew(-50deg) rotate(-138deg)
                 top: 7px
+
+@import _animation.sass

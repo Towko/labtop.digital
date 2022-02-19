@@ -1,0 +1,37 @@
+.animation
+    opacity: 0
+    transform: translateY(100%)
+    &.showing
+        opacity: 1
+        transition: ease 1s
+        transform: translateY(0%)
+.preferences__title, .cta__title, .about__title
+    .animation
+        &:nth-child(1)
+            &.showing
+                transition-delay: .1s
+        &:nth-child(3)
+            &.showing
+                transition-delay: .3s
+.preference-card
+    &__icon.animation
+        transform: translateY(0) translateX(-20px) rotate(270deg)
+        &.showing
+            transform: translateX(0) rotate(0deg)
+            transition-delay: .3s
+    &__title.animation
+        &.showing
+            transition-delay: .3s
+    &__desc.animation
+        &.showing
+            transition-delay: .3s
+.cta
+    &__descr.animation
+        &.showing
+            transition-delay: .5s
+    &__picture.animation
+        transform: translateY(0)
+        transform: translateX(-100px)
+        &.showing
+            transform: translateX(0)
+            transition: ease 2s

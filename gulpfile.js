@@ -15,35 +15,35 @@ gulp.task('sass', function () {
         //     outputStyle: 'expanded',
         //     allowEmpty: true
         // })).on('error', sass.logError)
-		// .pipe(autoprefixer({
+        // .pipe(autoprefixer({
         //     overrideBrowserslist: ['last 6 versions'],
         //     cascade: false
         // }))
         // .pipe(gulp.dest('./src/css'))
-        
+
         .pipe(sass({
             errorLogToConsole: true,
             outputStyle: 'compressed',
             allowEmpty: true
         })).on('error', sass.logError)
         .pipe(sourcemaps.init())
-		.pipe(autoprefixer({
+        .pipe(autoprefixer({
             overrideBrowserslist: ['last 6 versions'],
             cascade: false
         }))
-        .pipe(rename({suffix: '.min'}))
-		.pipe(sourcemaps.write('.'))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./src/css'));
 });
 
 gulp.task('pug', () => {
     return gulp.src('./src/*.pug')
-        .pipe(pug({pretty: true}))
+        .pipe(pug({ pretty: true }))
         .pipe(gulp.dest('./dist'))
-        
+
         .pipe(gulp.src('./src/*.pug'))
-        .pipe(pug({pretty: false}))
-        .pipe(rename({suffix: '.min'}))
+        .pipe(pug({ pretty: false }))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./dist'));
 });
 
@@ -57,7 +57,7 @@ gulp.task('pug', () => {
 //         .pipe(gulp.dest('./src'));
 // });
 
-gulp.task('svgSprite', function() {
+gulp.task('svgSprite', function () {
     return gulp.src('./src/img/svg-sprite/*.svg')
         .pipe(svgSprite({
             mode: {
@@ -69,37 +69,37 @@ gulp.task('svgSprite', function() {
         .pipe(gulp.dest('./src/img/'));
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', function () {
     browserSync.init({
         server: {
             baseDir: "./dist"
         }
-    });  
-    browserSync.watch('./src' , browserSync.reload);
-    browserSync.watch('./dist' , browserSync.reload);
+    });
+    browserSync.watch('./src', browserSync.reload);
+    browserSync.watch('./dist', browserSync.reload);
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return gulp.src('./src/js/*')
         .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
     return gulp.src('./src/css/*')
         .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
     return gulp.src('./src/fonts/**/*.*')
         .pipe(gulp.dest('./dist/fonts/'));
 });
 
-gulp.task('images', function() {
+gulp.task('images', function () {
     return gulp.src('./src/img/**/*.*')
         .pipe(gulp.dest('./dist/img/'));
 });
 
-gulp.task('files', function() {
+gulp.task('files', function () {
     return gulp.src(['./src/*.*', '!./src/*.pug'])
         .pipe(gulp.dest('./dist/'));
 });
@@ -107,28 +107,28 @@ gulp.task('files', function() {
 gulp.task('build-dist', gulp.series('fonts', 'images', 'pug', 'sass', 'styles', 'scripts', 'files'));
 
 
-gulp.task('watch', function() {
-    gulp.watch('./src/img/*', gulp.series('images'));
-    gulp.watch(['./src/**/*.pug', './src/pages/*.pug'], gulp.series('pug'));
-    gulp.watch(['./src/sass/**/*.sass', './src/sass/*.sass'], gulp.series('sass', 'styles'));
-    gulp.watch(['./src/js/**/*.js', './src/js/*.js'], gulp.series('scripts'));
+gulp.task('watch', function () {
+    gulp.watch('./src/img/*', gulp.series('images')),
+    gulp.watch(['./src/**/*.pug', './src/pages/*.pug'], gulp.series('pug')),
+    gulp.watch(['./src/sass/**/*.sass', './src/sass/*.sass'], gulp.series('sass', 'styles')),
+    gulp.watch(['./src/js/**/*.js', './src/js/*.js'], gulp.series('scripts'))
 });
 
-gulp.task('default' , gulp.series(
+gulp.task('default', gulp.series(
     gulp.series("build-dist"),
     gulp.parallel('watch', 'serve')
 ));
 
 // Create all folder when start project
-gulp.task('startProject', function(){
-    return gulp.src('*.*', {read: false})
+gulp.task('startProject', function () {
+    return gulp.src('*.*', { read: false })
         .pipe(gulp.dest('./src'))
         .pipe(gulp.dest('./src/css'))
         .pipe(gulp.dest('./src/fonts'))
         .pipe(gulp.dest('./src/img'))
         .pipe(gulp.dest('./src/sass'));
-        // .pipe(gulp.dest('./dist'))
-        // .pipe(gulp.dest('./dist/css'))
-        // .pipe(gulp.dest('./dist/img'))
-        // .pipe(gulp.dest('./dist/fonts'));
+    // .pipe(gulp.dest('./dist'))
+    // .pipe(gulp.dest('./dist/css'))
+    // .pipe(gulp.dest('./dist/img'))
+    // .pipe(gulp.dest('./dist/fonts'));
 });
